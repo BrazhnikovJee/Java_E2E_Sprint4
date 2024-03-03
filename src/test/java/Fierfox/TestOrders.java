@@ -7,14 +7,18 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import page.MainPage;
 import page.OrderPage;
+import page.constants;
+
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class TestOrders {
-    private WebDriver driver;
+    private final String url = constants.URL;
+    private final WebDriver driver = new ChromeDriver();
+    MainPage mainPage = new MainPage(driver);
+    OrderPage orderPage = new OrderPage(driver);
     private final int number;
     private final String name;
     private final String surname;
@@ -47,10 +51,7 @@ public class TestOrders {
 
     @Test
     public void orderTest() {
-        driver = new ChromeDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-        MainPage mainPage = new MainPage(driver);
-        OrderPage orderPage = new OrderPage(driver);
+        driver.get(url);
         mainPage.acceptByCookies();
         mainPage.scrollToByOrder(number);
         mainPage.getOrderButtons().get(number).click();

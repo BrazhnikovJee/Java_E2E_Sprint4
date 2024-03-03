@@ -12,23 +12,29 @@ public class OrderPage {
     public OrderPage(WebDriver driver) {
         this.driver = driver;
     }
-
+    //Поле "Имя"
     private final By getNameField = By.xpath(".//input[@placeholder='* Имя']");
+    //Поле "Фамилия"
     private final By getSurnameField = By.xpath(".//input[@placeholder='* Фамилия']");
+    //Поле "Адрес: куда привезти заказ"
     private final By getAddressField = By.xpath(".//input[@placeholder='* Адрес: куда привезти заказ']");
+    //Поле "Станция метро"
     private final By getMetroField = By.xpath(".//input[@placeholder='* Станция метро']");
+    //Поле "Телефон: на него позвонит курьер"
     private final By getPhoneField = By.xpath(".//input[@placeholder='* Телефон: на него позвонит курьер']");
-
+    //Поле "Когда привезти самокат"
     private final By getDateField = By.xpath(".//input[@placeholder='* Когда привезти самокат']");
+    //Поле "Срок аренды"
     private final By getRentalPeriod = By.xpath(".//div[@class='Dropdown-placeholder']");
+    //Чекбокс "Черный жемчуг" в поле цвет самоката
     private final By getBlackScooter = By.id("black");
-
+    //Кнопка "Далее"
     private final By getNextButton = By.xpath(".//button[text()='Далее']");
-    //кнопка Заказать
+    //Кнопка "Заказать"
     private final By getOrderFinalButton = By.xpath(".//button[text()='Назад']/parent::div/button[text()='Заказать']");
-    //кнопка Да - в модальном окне
+    //кнопка "Да" - в модальном окне
     private final By getOkButton = By.xpath(".//button[text()='Да']");
-
+    //Текст в модальном окне "Заказ оформлен"
     private final By getOrderIsProcessed = By.xpath(".//div[text()='Заказ оформлен']");
     public void clickNextButton() {
         driver.findElement(getNextButton).click();

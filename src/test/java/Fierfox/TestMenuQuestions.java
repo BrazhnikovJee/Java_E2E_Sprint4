@@ -6,16 +6,19 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import page.MainPage;
+import page.constants;
+
 import java.time.Duration;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class TestMenuQuestions {
-    private WebDriver driver;
+    private final String url = constants.URL;
+    private final WebDriver driver = new ChromeDriver();
+    MainPage mainPage = new MainPage(driver);
     private final String questions;
     private final int number;
     public TestMenuQuestions(String questions, int number) {
@@ -48,9 +51,7 @@ public class TestMenuQuestions {
 
     @Test
         public void Check() {
-        driver = new ChromeDriver();
-        MainPage mainPage = new MainPage(driver);
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(url);
         mainPage.acceptByCookies();
         mainPage.scrollToByHeader();
         new WebDriverWait(driver, Duration.ofSeconds(3))

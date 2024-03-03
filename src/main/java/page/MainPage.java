@@ -11,9 +11,13 @@ public class MainPage {
     public MainPage(WebDriver driver) {
         this.driver = driver;
     }
+    //Кнопка "да все привыкли"
     public final By getCookiesButton = By.id("rcc-confirm-button");
+    //Текст "Вопросы о важном"
     private final By getNameQuestionsMenu = By.xpath(".//div[text()='Вопросы о важном']");
+    //Вопрос и ответ
     private final By getListMenu = By.xpath(".//div[@class='accordion__item']");
+    //Кнопка "Заказать
     private final By getOrderButtons = By.xpath(".//*[contains(@class,'ra12g') and text()='Заказать']");
     //Принять куки
     public void acceptByCookies() {
